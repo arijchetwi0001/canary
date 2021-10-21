@@ -1,16 +1,20 @@
 const express = require('express')
 const app = express()
 const port = 3000
+const path=require('path')
 app.use(express.static('public'));
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
+app.get('/', function(req, res) {
+    res.sendFile(path.join(__dirname, 'views/index.html'));
+  });
 app.get('/signin', (req, res) => {
-    res.send('sign in')
+    res.sendFile(path.join(__dirname, 'views/signin.html'));
   })
   app.get('/signup', (req, res) => {
-    res.send('sign up')
+    res.sendFile(path.join(__dirname, 'views/signup.html'));
+  })
+  app.get('/signup', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views/signup.html'));
   })
 
 app.listen(port, () => {
